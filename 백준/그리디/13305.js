@@ -14,7 +14,7 @@ let sum = BigInt(0);
 for (let i = 0; i < city_price.length; i++) {
   sum += curPrice * distance[i];
   if (curPrice > city_price[i]) {
-    curPrice = curPrice[i];
+    curPrice = curPrice[i]; 
   }
 }
 
