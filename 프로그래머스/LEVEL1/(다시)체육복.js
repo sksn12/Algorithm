@@ -1,31 +1,36 @@
 function solution(n, lost, reserve) {
-  let answer = 0;
-  answer = n - lost.length;
-  const first = reserve.length;
-
-  for (let i = 0; i < reserve.length; i++) {
-    let now_reerve = reserve.shift();
-    let front = now_reerve + 1;
-    let back = now_reerve - 1;
-
-    for (let x = 0; x < lost.length; x++) {
-      if (lost[x] == front) {
-        let indexNum = lost.indexOf(lost[x]);
-        reserve.splice(indexNum, 1);
-      } else if (lost[x] == back) {
-        let indexNum = lost.indexOf(lost[x]);
-        reserve.splice(indexNum, 1);
-      } else {
-        reserve.push(now_reerve);
+  let answer = n - lost.length;
+  let reserveFilter;
+  // console.log(solution(3, [1, 2], [2, 3]));
+  reserveFilter = reserve.filter((e) => {
+    for (const num of lost) {
+      if (num == e) {
+        return false;
+      }
+      return true;
+    }
+  });
+  console.log(reserveFilter);
+  let x = lost.filter((e) => {
+    for (const num of reserveFilter) {
+      let front = e - 1;
+      let back = e + 1;
+      if (front == num) {
+        let indexNum = reserveFilter.indexOf(num);
+        reserveFilter.splice(indexNum, 1);
+        return e;
+      } else if (back == num) {
+        let indexNum = reserveFilter.indexOf(num);
+        reserveFilter.splice(indexNum, 1);
+        return e;
       }
     }
-  }
-  let end = first - reserve.length;
+  });
 
-  answer += end;
-
+  answer = answer + x.length;
   return answer;
 }
-console.log(solution(5, [2, 4], [1, 3, 5]));
+console.log(solution(5, [2, 4], [1, 2, 3, 5]));
 console.log(solution(5, [2, 4], [3]));
-console.log(solution(3, [3], [1]));
+console.log(solution(3, [1, 2], [2, 3]));
+console.log(solution(9, [5, 6, 8, 1, 2], [2, 3, 1, 4, 8, 9]));

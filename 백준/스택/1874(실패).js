@@ -7,7 +7,6 @@ let input = fs
 
 const max = input.shift();
 let cnt = 0;
-let result = [];
 const stack = [];
 stack.push(cnt + 1);
 let num = 1;
@@ -15,24 +14,16 @@ let num = 1;
 while (cnt < max) {
   if (input[cnt] == stack[stack.length - 1]) {
     stack.pop();
-    result.push("-");
+    console.log("-");
     cnt += 1;
   } else {
     if (num == max) {
-      result = [];
+      console.log("no");
       break;
     }
     num += 1;
     stack.push(num);
-    result.push("+");
-  }
-}
-
-if (result.length == 0) {
-  console.log("NO");
-} else {
-  for (const x of result) {
-    console.log(x);
+    console.log("+");
   }
 }
 
