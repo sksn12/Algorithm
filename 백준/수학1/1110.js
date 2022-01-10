@@ -1,6 +1,6 @@
 const fs = require("fs");
 let input = fs.readFileSync("./test.txt").toString().trim();
-let cnt = 0;
+let cnt = 1;
 
 let first = input;
 if (parseInt(first) < 10) {
@@ -13,7 +13,6 @@ let next = first[1] + sum;
 
 while (true) {
   if (first === next) {
-    cnt += 1;
     console.log(cnt);
     break;
   } else {

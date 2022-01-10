@@ -28,8 +28,8 @@ function solution(s) {
       }
     }
   }
-  answer = parseInt(answer);
 
+  answer = Number(answer);
   return answer;
 }
 console.log(solution("zerozerozero"));

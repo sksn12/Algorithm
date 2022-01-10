@@ -1,15 +1,14 @@
 function solution(new_id) {
-  let answer;
-  answer = new_id
+  let answer = new_id
     .toLowerCase()
-    .replace(/[^a-z0-9-\.\-\_]/g, "")
+    .replace(/[^a-z0-9\-\_\.]+/g, "")
     .replace(/\.+/g, ".")
-    .replace(/(^\.)|(\.$)/, "");
+    .replace(/(^\.)|(\.$)/g, "");
 
   if (answer.length == 0) {
     answer = "a";
   } else if (answer.length >= 16) {
-    answer = answer.substr(0, 15).replace(/\.$/, "");
+    answer = answer.substr(0, 15).replace(/\.$/g, "");
   }
 
   if (answer.length <= 2) {
@@ -22,4 +21,4 @@ function solution(new_id) {
   return answer;
 }
 
-console.log(solution("z-+.^."));
+console.log(solution("...!@BaT#*..y.abcdefghijklm"));
