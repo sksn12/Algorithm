@@ -39,6 +39,7 @@ let arr = [
 ];
 console.log(solution(28, arr));
 
+// 강의 코드
 function solution(m, product) {
   let answer = 0;
   let n = product.length;
