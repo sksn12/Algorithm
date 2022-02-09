@@ -9,7 +9,7 @@ function solution(times) {
     if (a[0] == b[0]) return a[1].charCodeAt() - b[1].charCodeAt();
     else return a[0] - b[0];
   });
-  console.log(T_L);
+
   let cnt = 0;
   for (let x of T_L) {
     if (x[1] == "s") {
