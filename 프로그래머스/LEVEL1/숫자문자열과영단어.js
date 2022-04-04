@@ -13,23 +13,17 @@ function solution(s) {
     { name: 8, value: "eight" },
     { name: 9, value: "nine" },
   ];
-  const length = box.length;
-  let val = "";
-  for (let i = 0; i < length; i++) {
-    if (parseInt(box[i])) {
-      answer += box[i];
-    } else {
-      val += box[i];
-      for (let x = 0; x < number.length; x++) {
-        if (number[x].value == val) {
-          answer += number[x].name;
-          val = "";
-        }
+  let tmp = "";
+  for (let i = 0; i < box.length; i++) {
+    tmp += box[i];
+    for (let j = 0; j < number.length; j++) {
+      if (tmp == number[j].value || tmp == number[j].name) {
+        answer += number[j].name;
+        tmp = "";
+        break;
       }
     }
   }
-
-  answer = Number(answer);
-  return answer;
+  return Number(answer);
 }
-console.log(solution("zerozerozero"));
+console.log(solution("one4seveneight"));
