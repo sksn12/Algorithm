@@ -1,12 +1,7 @@
 function solution(array, commands) {
-  let answer = [];
-  for (let i = 0; i < commands.length; i++) {
-    let tmp = array
-      .splice(commands[i][0] - 1, commands[i][1] - 1)
-      .sort((a, b) => a - b)[commands[i][2] - 1];
-    console.log(tmp);
-  }
-  return answer;
+  return commands.map((e) => {
+    return array.slice(e[0] - 1, e[1]).sort((a, b) => a - b)[e[2] - 1];
+  });
 }
 console.log(
   solution(
