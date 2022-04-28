@@ -6,16 +6,16 @@ function solution(name) {
     let up = 0;
     let down = 0;
 
-    let ANum = 65;
-    let BackNum = 90;
+    let A_tmp = 65;
+    let Z_tmp = 90;
 
     //위로 갔을 때 (다음)
     while (true) {
-      if (tmp > BackNum) tmp;
-      if (name.charCodeAt(i) === tmp) {
+      if (A_tmp > Z_tmp) A_tmp;
+      if (name.charCodeAt(i) === A_tmp) {
         break;
       } else {
-        tmp += 1;
+        A_tmp += 1;
         up += 1;
       }
     }
