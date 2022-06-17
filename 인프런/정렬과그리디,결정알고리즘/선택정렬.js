@@ -12,6 +12,7 @@ function solution(arr) {
     // js 최신문법 위에 3줄 코드를 한줄로 변경가능
     [arr[i], arr[idx]] = [arr[idx], arr[i]];
   }
+
   return answer;
 }
 
